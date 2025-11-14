@@ -1,0 +1,77 @@
+#map {
+  width: 100vw;
+  height: 70vh;   /* Map size */
+  position: relative;
+}
+
+#map canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#map svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#map svg circle {
+  pointer-events: auto;
+  stroke: white;
+  stroke-width: 1px;
+  fill-opacity: 0.8;
+}
+
+/* --------------------------------
+   Shared color variables for circle + legend
+---------------------------------*/
+#map svg circle,
+.legend-circles div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+/* --------------------------------
+   Circle fill for map
+---------------------------------*/
+#map svg circle {
+  fill: var(--color);
+}
+
+
+.legend {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;   /* a row */
+  gap: 1.5rem;           
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.legend-circles div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;           
+}
+
+
+.legend-circles .swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color);
+  display: inline-block;
+  border: 1px solid white;
+}

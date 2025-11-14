@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bikewatching</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bikewatching</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="global.css" />
+  <!-- initialize map -->
+  <link rel="stylesheet" href="map.css" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="map.js" type="module"></script>
+</head>
+
+<body>
+  <header>
     <h1>🚴🏼‍♀️ Bikewatching</h1>
-    <link rel="stylesheet" href="global.css" />
-  </body>
+
+    <label id="time-filter">
+      Filter by time:
+      <input id="time-slider" type="range" min="-1" max="1440" value="-1">
+      <time id="selected-time"></time>
+      <em id="any-time">(any time)</em>
+    </label>
+  </header>
+  <div id="map">
+    <svg></svg>
+
+  </div>
+ <div class="legend legend-circles">
+  <div style="--departure-ratio: 1">
+    <span class="swatch"></span> More departures
+  </div>
+
+  <div style="--departure-ratio: 0.5">
+    <span class="swatch"></span> Balanced
+  </div>
+
+  <div style="--departure-ratio: 0">
+    <span class="swatch"></span> More arrivals
+  </div>
+</div>
+
+
+</body>
+
 </html>

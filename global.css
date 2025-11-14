@@ -1,10 +1,34 @@
 body {
   font: 100%/1.5 system-ui, sans-serif;
-  display: flex;
-  flex-flow: column;
-  max-width: 80em;
-  min-height: 100vh;
-  box-sizing: border-box;
-  margin: auto;
+  margin: 0;
   padding: 1em;
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  margin-bottom: 0.5em;
+}
+
+#time-filter input[type="range"] {
+  width: 100%;
+  min-width: 250px;  
+}
+
+#time-filter {
+  margin-left: auto;  
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+#time-filter time,
+#time-filter em {
+  display: block;     
+}
+
+#time-filter em {
+  font-style: italic;
+  color: #777;
 }
